@@ -337,6 +337,7 @@ database
 
 // Relacionamento: N para N
 
+/*
 database
   .select([
     'estudios.nome as estudio_nome',
@@ -353,3 +354,22 @@ database
   .catch((err) => {
     console.log(err);
   });
+*/
+
+// Transações
+
+async function testeTransacao() {
+  try {
+    await database.transaction(async (trans) => {
+      await database.insert({ nome: 'Qualquer Nome' }).table('estudios');
+      await database.insert({ nome: 'Pyxerelia' }).table('estudios');
+      await database.insert({ nome: 'Mojang' }).table('estudios');
+      await database.insert({ nome: 'Gearbox' }).table('estudios');
+      console.log('executou!');
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+testeTransacao();
