@@ -43,3 +43,9 @@ mysql2 é mais recente e performa melhor
 ```npm
 npm install mysql2 --save
 ```
+
+- Iniciar Aplicação
+
+```npm
+node index
+```
