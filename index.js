@@ -44,6 +44,7 @@ database
 
 // SELECT
 
+/*
 database
   .select('*')
   .table('games')
@@ -88,3 +89,48 @@ database
   .catch((err) => {
     console.log(err);
   });
+*/
+
+// WHERE
+
+/*
+var query = database
+  .select(['id', 'preco'])
+  .where({ nome: 'Mists of Noyah' })
+  .table('games');
+console.log(query.toQuery());
+
+query = database
+  .select(['id', 'preco'])
+  .where({ nome: 'Mists of Noyah' })
+  .where({ id: 2 })
+  .orWhere({ id: 6 })
+  .table('games');
+console.log(query.toQuery());
+
+query = database
+  .select(['id', 'preco'])
+  .whereRaw("nome = 'Mists of Noyah' OR preco > 50")
+  .table('games');
+console.log(query.toQuery());
+
+database
+  .select(['id', 'nome', 'preco'])
+  .whereRaw("nome = 'Mists of Noyah' OR preco > 120")
+  .table('games')
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+database
+  .raw('SELECT * FROM games')
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+*/
