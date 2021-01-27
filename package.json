@@ -1,0 +1,16 @@
+{
+  "name": "nodejs-knex",
+  "version": "1.0.0",
+  "description": "Curso de Knex",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "knex": "^0.21.16",
+    "mysql2": "^2.2.5"
+  }
+}
