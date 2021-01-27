@@ -137,9 +137,24 @@ database
 
 // DELETE
 
+/*
 database
   .where({ id: 3 })
   .delete()
+  .table('games')
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+*/
+
+// UPDATE
+
+database
+  .where({ id: 5 })
+  .update({ preco: 100.0 })
   .table('games')
   .then((data) => {
     console.log(data);
