@@ -1,4 +1,3 @@
-const { table } = require('./database');
 var database = require('./database');
 
 // INSERT
