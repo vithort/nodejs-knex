@@ -2,6 +2,7 @@ var database = require('./database');
 
 // INSERT
 
+/*
 var dados = {
   nome: 'Sea of Thieves',
   preco: 50.67,
@@ -35,6 +36,54 @@ database
   .into('games')
   .then((data) => {
     console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+*/
+
+// SELECT
+
+database
+  .select('*')
+  .table('games')
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+database
+  .select('id', 'preco')
+  .table('games')
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+// NESTED QUERIES
+
+database
+  .insert({
+    nome: 'Mists of Noyah',
+    preco: 25,
+  })
+  .into('games')
+  .then((data) => {
+    console.log(data);
+    database
+      .select()
+      .table('games')
+      .where({ id: data })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   })
   .catch((err) => {
     console.log(err);
