@@ -191,12 +191,72 @@ database
 
 // ASSOCIATED INSERTS
 
+/*
 database
   .insert({
     nome: 'Blizzard',
     game_id: 5,
   })
   .table('estudios')
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+*/
+
+/*
+database
+  .insert([
+    {
+      nome: 'Pyxeralia',
+      game_id: 6,
+    },
+    {
+      nome: 'Rare',
+      game_id: 1,
+    },
+    {
+      nome: 'Activision',
+      game_id: 2,
+    },
+    {
+      nome: 'Rockstar Games',
+      game_id: 4,
+    },
+  ])
+  .table('estudios')
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+*/
+
+// JOIN
+
+database
+  .select(
+    'games.id',
+    'estudios.id as estudio_id',
+    'games.nome as gameNome',
+    'estudios.nome as estudioName'
+  )
+  .table('games')
+  .innerJoin('estudios', 'estudios.game_id', 'games.id')
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+database
+  .select('games.*', 'estudios.nome as estudioName')
+  .table('games')
+  .innerJoin('estudios', 'estudios.game_id', 'games.id')
   .then((data) => {
     console.log(data);
   })
