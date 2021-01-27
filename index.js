@@ -268,6 +268,7 @@ database
 
 // JOIN WHERE
 
+/*
 database
   .select('games.*', 'estudios.nome as estudioName')
   .table('games')
@@ -275,6 +276,58 @@ database
   .where('games.id', 2)
   .then((data) => {
     console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+*/
+
+// Reclacionamento: 1 para N
+
+/*
+database
+  .insert([
+    {
+      nome: 'Blizz',
+      game_id: 5,
+    },
+    {
+      nome: 'Activision',
+      game_id: 5,
+    },
+  ])
+  .table('estudios')
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+*/
+
+database
+  .select('games.*', 'estudios.nome as estudioName')
+  .table('games')
+  .innerJoin('estudios', 'estudios.game_id', 'games.id')
+  .where('games.id', 5)
+  .then((data) => {
+    console.log(data);
+    var estudioGamesArray = data;
+    var game = {
+      id: 0,
+      nome: '',
+      estudios: [],
+    };
+    game.id = data[0].id;
+    game.nome = data[0].nome;
+
+    console.log(game);
+
+    data.forEach((estudio) => {
+      game.estudios.push({ nome: estudio.estudioName });
+    });
+
+    console.log(game);
   })
   .catch((err) => {
     console.log(err);
