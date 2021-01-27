@@ -237,6 +237,7 @@ database
 
 // JOIN
 
+/*
 database
   .select(
     'games.id',
@@ -257,6 +258,21 @@ database
   .select('games.*', 'estudios.nome as estudioName')
   .table('games')
   .innerJoin('estudios', 'estudios.game_id', 'games.id')
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+*/
+
+// JOIN WHERE
+
+database
+  .select('games.*', 'estudios.nome as estudioName')
+  .table('games')
+  .innerJoin('estudios', 'estudios.game_id', 'games.id')
+  .where('games.id', 2)
   .then((data) => {
     console.log(data);
   })
