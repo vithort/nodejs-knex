@@ -30,3 +30,15 @@ CREATE TABLE `games_estudios` (
   CONSTRAINT `games_estudios_FK` FOREIGN KEY (`game_id`) REFERENCES `games` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `games_estudios_FK_1` FOREIGN KEY (`estudio_id`) REFERENCES `estudios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+INSERT INTO knexjs.games (nome, preco) VALUES('Bully', 20);
+INSERT INTO knexjs.games (nome, preco) VALUES('Midnight Club', 12);
+
+INSERT INTO knexjs.games_estudios (game_id, estudio_id) VALUES(4, 5);
+INSERT INTO knexjs.games_estudios (game_id, estudio_id) VALUES(4, 6);
+INSERT INTO knexjs.games_estudios (game_id, estudio_id) VALUES(4, 4);
+INSERT INTO knexjs.games_estudios (game_id, estudio_id) VALUES(7, 6);
+INSERT INTO knexjs.games_estudios (game_id, estudio_id) VALUES(8, 3);
+INSERT INTO knexjs.games_estudios (game_id, estudio_id) VALUES(5, 1);
+INSERT INTO knexjs.games_estudios (game_id, estudio_id) VALUES(5, 5);
