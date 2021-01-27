@@ -282,7 +282,7 @@ database
   });
 */
 
-// Reclacionamento: 1 para N
+// Relacionamento: 1 para N
 
 /*
 database
@@ -305,6 +305,7 @@ database
   });
 */
 
+/*
 database
   .select('games.*', 'estudios.nome as estudioName')
   .table('games')
@@ -332,3 +333,6 @@ database
   .catch((err) => {
     console.log(err);
   });
+*/
+
+// Relacionamento: N para N
