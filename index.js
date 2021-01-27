@@ -167,6 +167,7 @@ database
 
 // ORDER BY
 
+/*
 database
   .select()
   .table('games')
@@ -177,3 +178,12 @@ database
   .catch((err) => {
     console.log(err);
   });
+*/
+
+/**
+ * Relacionamentos
+ *
+ * 1 -> 1
+ * 1 -> N
+ * N -> N
+ */
