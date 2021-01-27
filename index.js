@@ -336,3 +336,20 @@ database
 */
 
 // Relacionamento: N para N
+
+database
+  .select([
+    'estudios.nome as estudio_nome',
+    'games.nome as game_nome',
+    'games.preco',
+  ])
+  .table('games_estudios')
+  .innerJoin('games', 'games.id', 'games_estudios.game_id')
+  .innerJoin('estudios', 'estudios.id', 'games_estudios.estudio_id')
+  .where('games.id', 4)
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
