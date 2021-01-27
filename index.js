@@ -152,10 +152,25 @@ database
 
 // UPDATE
 
+/*
 database
   .where({ id: 5 })
   .update({ preco: 100.0 })
   .table('games')
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+*/
+
+// ORDER BY
+
+database
+  .select()
+  .table('games')
+  .orderBy('preco', 'desc')
   .then((data) => {
     console.log(data);
   })
