@@ -1,3 +1,4 @@
+const { table } = require('./database');
 var database = require('./database');
 
 // INSERT
@@ -187,3 +188,18 @@ database
  * 1 -> N
  * N -> N
  */
+
+// ASSOCIATED INSERTS
+
+database
+  .insert({
+    nome: 'Blizzard',
+    game_id: 5,
+  })
+  .table('estudios')
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
